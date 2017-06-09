@@ -1693,6 +1693,10 @@
         <path name="voicemmode1-call incall-music-bt" />
     </path>
 
+    <path name="voicemmode1-call headphones">
+        <path name="voicemmode1-call"/>
+    </path>
+
     <path name="voicemmode2-call">
         <ctl name="SLIM_0_RX_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer SLIM_0_TX_MMode2" value="1" />
