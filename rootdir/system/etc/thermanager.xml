@@ -1,0 +1,163 @@
+<thermanager>
+    <resources>
+
+        <!-- thermal zones -->
+        <resource name="bms"  type="tz">/sys/class/thermal/thermal_zone0</resource>
+        <resource name="msm_therm" type="tz">/sys/class/thermal/thermal_zone24</resource>
+        <resource name="emmc_therm" type="tz">/sys/class/thermal/thermal_zone25</resource>
+
+        <!-- cpu clusters -->
+        <resource name="cluster-0-max-clk" type="sysfs">/sys/module/msm_performance/parameters/cpu_max_freq</resource>
+        <resource name="cluster-1-max-clk" type="sysfs">/sys/module/msm_performance/parameters/cpu_max_freq</resource>
+
+        <!-- adreno -->
+        <resource name="adreno-max-clk" type="sysfs">/sys/class/kgsl/kgsl-3d0/max_gpuclk</resource>
+
+        <!--- charging speed -->
+        <resource name="charge_speed" type="sysfs">/sys/class/power_supply/battery/system_temp_level</resource>
+
+        <!-- shutdown -->
+        <resource name="shutdown" type="halt" delay="5" />
+
+    </resources>
+
+    <control name="shutdown">
+        <mitigation level="off" />
+        <mitigation level="1"><value resource="shutdown"/></mitigation>
+    </control>
+
+    <!-- cluster 0 clocks -->
+    <control name="cluster-0-clk">
+        <mitigation level="off"><value resource="cluster-0-max-clk">0:4294967295</value></mitigation>
+        <mitigation level="1"><value resource="cluster-0-max-clk">0:1478400</value></mitigation>
+        <mitigation level="2"><value resource="cluster-0-max-clk">0:1324800</value></mitigation>
+        <mitigation level="3"><value resource="cluster-0-max-clk">0:1113600</value></mitigation>
+        <mitigation level="4"><value resource="cluster-0-max-clk">0:1036800</value></mitigation>
+        <mitigation level="5"><value resource="cluster-0-max-clk">0:844800</value></mitigation>
+        <mitigation level="6"><value resource="cluster-0-max-clk">0:729600</value></mitigation>
+        <mitigation level="7"><value resource="cluster-0-max-clk">0:422400</value></mitigation>
+        <mitigation level="8"><value resource="cluster-0-max-clk">0:307200</value></mitigation>
+    </control>
+
+    <!-- cluster 1 clocks -->
+    <control name="cluster-1-clk">
+        <mitigation level="off"><value resource="cluster-1-max-clk">2:4294967295</value></mitigation>
+        <mitigation level="1"><value resource="cluster-1-max-clk">2:1478400</value></mitigation>
+        <mitigation level="2"><value resource="cluster-1-max-clk">2:1324800</value></mitigation>
+        <mitigation level="3"><value resource="cluster-1-max-clk">2:1113600</value></mitigation>
+        <mitigation level="4"><value resource="cluster-1-max-clk">2:1036800</value></mitigation>
+        <mitigation level="5"><value resource="cluster-1-max-clk">2:883200</value></mitigation>
+        <mitigation level="6"><value resource="cluster-1-max-clk">2:729600</value></mitigation>
+        <mitigation level="7"><value resource="cluster-1-max-clk">2:403200</value></mitigation>
+        <mitigation level="8"><value resource="cluster-1-max-clk">2:307200</value></mitigation>
+    </control>
+
+    <!-- adreno clocks -->
+    <control name="adreno-clk">
+        <mitigation level="off"><value resource="adreno-max-clk">624000000</value></mitigation>
+        <mitigation level="1"><value resource="adreno-max-clk">133000000</value></mitigation>
+    </control>
+
+    <!-- charging levels -->
+    <control name="charging">
+        <mitigation level="off"><value resource="charge_speed">0</value></mitigation>
+        <mitigation level="1"><value resource="charge_speed">2</value></mitigation>
+        <mitigation level="2"><value resource="charge_speed">5</value></mitigation>
+        <mitigation level="3"><value resource="charge_speed">8</value></mitigation>
+        <mitigation level="4"><value resource="charge_speed">9</value></mitigation>
+        <mitigation level="5"><value resource="charge_speed">11</value></mitigation>
+        <mitigation level="6"><value resource="charge_speed">12</value></mitigation>
+        <mitigation level="7"><value resource="charge_speed">13</value></mitigation>
+    </control>
+
+    <!-- throttling -->
+    <configuration sensor="emmc_therm">
+        <threshold>
+            <mitigation name="cluster-0-clk" level="off" />
+            <mitigation name="cluster-1-clk" level="off" />
+            <mitigation name="adreno-clk" level="off" />
+            <mitigation name="charging" level="off" />
+        </threshold>
+        <threshold trigger="45000" clear="42000">
+            <mitigation name="cluster-0-clk" level="off" />
+            <mitigation name="cluster-1-clk" level="off" />
+            <mitigation name="charging" level="1" />
+            <mitigation name="adreno-clk" level="off" />
+        </threshold>
+        <threshold trigger="47700" clear="45000">
+            <mitigation name="cluster-0-clk" level="1" />
+            <mitigation name="cluster-1-clk" level="1" />
+            <mitigation name="adreno-clk" level="off" />
+            <mitigation name="charging" level="1" />
+        </threshold>
+        <threshold trigger="48900" clear="47700">
+            <mitigation name="cluster-0-clk" level="2" />
+            <mitigation name="cluster-1-clk" level="2" />
+            <mitigation name="adreno-clk" level="off" />
+            <mitigation name="charging" level="2" />
+        </threshold>
+        <threshold trigger="50200" clear="48900">
+            <mitigation name="cluster-0-clk" level="3" />
+            <mitigation name="cluster-1-clk" level="3" />
+            <mitigation name="adreno-clk" level="off" />
+            <mitigation name="charging" level="3" />
+        </threshold>
+        <threshold trigger="51400" clear="50200">
+            <mitigation name="cluster-0-clk" level="4" />
+            <mitigation name="cluster-1-clk" level="4" />
+            <mitigation name="adreno-clk" level="off" />
+            <mitigation name="charging" level="4" />
+        </threshold>
+        <threshold trigger="52500" clear="51400">
+            <mitigation name="cluster-0-clk" level="5" />
+            <mitigation name="cluster-1-clk" level="5" />
+            <mitigation name="adreno-clk" level="off" />
+            <mitigation name="charging" level="5" />
+        </threshold>
+        <threshold trigger="53500" clear="52500">
+            <mitigation name="cluster-0-clk" level="6" />
+            <mitigation name="cluster-1-clk" level="6" />
+            <mitigation name="adreno-clk" level="off" />
+            <mitigation name="charging" level="5" />
+        </threshold>
+        <threshold trigger="54700" clear="53500">
+            <mitigation name="cluster-0-clk" level="7" />
+            <mitigation name="cluster-1-clk" level="7" />
+            <mitigation name="adreno-clk" level="off" />
+            <mitigation name="charging" level="6" />
+        </threshold>
+        <threshold trigger="55700" clear="54700">
+            <mitigation name="cluster-0-clk" level="8" />
+            <mitigation name="cluster-1-clk" level="8" />
+            <mitigation name="adreno-clk" level="1" />
+            <mitigation name="charging" level="6" />
+        </threshold>
+        <threshold trigger="63000" clear="60000">
+            <mitigation name="cluster-0-clk" level="8" />
+            <mitigation name="cluster-1-clk" level="8" />
+            <mitigation name="adreno-clk" level="1" />
+            <mitigation name="charging" level="7" />
+        </threshold>
+    </configuration>
+
+    <!-- burn-out protection -->
+    <configuration sensor="emmc_therm">
+        <threshold>
+            <mitigation name="shutdown" level="off" />
+        </threshold>
+        <threshold trigger="74000" clear="63000">
+            <mitigation name="shutdown" level="1" />
+        </threshold>
+    </configuration>
+
+    <!-- battery protection -->
+    <configuration sensor="bms">
+        <threshold>
+            <mitigation name="shutdown" level="off" />
+        </threshold>
+        <threshold trigger="67000" clear="63000">
+            <mitigation name="shutdown" level="1" />
+        </threshold>
+    </configuration>
+
+</thermanager>

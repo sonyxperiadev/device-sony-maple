@@ -1,0 +1,38 @@
+<ChromatixConfigurationRoot>
+  <CommonChromatixInfo>
+    <ChromatixName>
+      <ISPCommon>imx258_common</ISPCommon>
+      <PostProc>imx258_postproc</PostProc>
+      <CPPPreview>imx258_cpp_preview</CPPPreview>
+      <CPPSnapshot>imx258_cpp_snapshot</CPPSnapshot>
+      <CPPLiveshot>imx258_cpp_liveshot</CPPLiveshot>
+    </ChromatixName>
+  </CommonChromatixInfo>
+  <ResolutionChromatixInfo>
+    <ChromatixName sensor_resolution_index="0">
+      <ISPPreview>imx258_snapshot</ISPPreview>
+      <ISPSnapshot>imx258_snapshot</ISPSnapshot>
+      <ISPVideo>imx258_video</ISPVideo>
+      <CPPVideo>imx258_cpp_video</CPPVideo>
+      <A3Preview>imx258_default_preview_lc898217</A3Preview>
+      <A3Video>imx258_default_video_lc898217</A3Video>
+    </ChromatixName>
+    <ChromatixName sensor_resolution_index="1">
+      <ISPPreview>imx258_preview</ISPPreview>
+      <ISPSnapshot>imx258_preview</ISPSnapshot>
+      <ISPVideo>imx258_video</ISPVideo>
+      <CPPVideo>imx258_cpp_video</CPPVideo>
+      <A3Preview>imx258_default_preview_lc898217</A3Preview>
+      <A3Video>imx258_default_video_lc898217</A3Video>
+    </ChromatixName>
+    <ChromatixName sensor_resolution_index="2">
+      <ISPPreview>imx258_preview</ISPPreview>
+      <ISPSnapshot>imx258_preview</ISPSnapshot>
+      <ISPVideo>imx258_video</ISPVideo>
+      <CPPVideo>imx258_cpp_video</CPPVideo>
+      <PostProc>imx258_postproc</PostProc>
+      <A3Preview>imx258_default_preview_lc898217</A3Preview>
+      <A3Video>imx258_default_video_lc898217</A3Video>
+    </ChromatixName>
+  </ResolutionChromatixInfo>
+</ChromatixConfigurationRoot>
