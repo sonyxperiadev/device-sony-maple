@@ -5,6 +5,7 @@
     <ActuatorName>bu64747BS2</ActuatorName>
     <FlashName>pmic</FlashName>
     <ChromatixName>imx400_chromatix</ChromatixName>
+    <I2CFrequencyMode>FAST_PLUS</I2CFrequencyMode>
     <ModesSupported>1</ModesSupported>
     <Position>BACK</Position>
     <MountAngle>90</MountAngle>
@@ -28,6 +29,7 @@
     <SensorName>imx258</SensorName>
     <ActuatorName>lc898217xc</ActuatorName>
     <ChromatixName>imx258_chromatix</ChromatixName>
+    <I2CFrequencyMode>FAST</I2CFrequencyMode>
     <ModesSupported>1</ModesSupported>
     <Position>FRONT</Position>
     <MountAngle>90</MountAngle>
