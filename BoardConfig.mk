@@ -22,4 +22,9 @@ NXP_CHIP_FW_TYPE := PN553
 
 BOARD_KERNEL_CMDLINE += androidboot.hardware=maple
 
+# For split frame buffer in recovery
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_RECOVERY_OVERLAY_ENABLE := true
+TARGET_RECOVERY_OVERLAY_ENABLE_DOUBLE_BUFFERING := false
+
 #TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
