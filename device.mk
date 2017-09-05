@@ -66,7 +66,6 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint HAL
 PRODUCT_PACKAGES += \
-    fingerprintd \
     fingerprint.maple
 
 # NFC config
