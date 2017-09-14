@@ -16,6 +16,9 @@ include device/sony/yoshino/PlatformConfig.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := G8141
 
+# Platform
+PRODUCT_PLATFORM := yoshino
+
 # NFC
 NXP_CHIP_TYPE := PN553
 NXP_CHIP_FW_TYPE := PN553
