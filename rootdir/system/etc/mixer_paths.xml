@@ -2781,6 +2781,10 @@
     <path name="afe-proxy">
     </path>
 
+    <path name="voice-rec-mic">
+        <path name="handset-mic" />
+    </path>
+
     <path name="anc-headphones">
         <ctl name="COMP1 Switch" value="0" />
         <ctl name="COMP2 Switch" value="0" />
