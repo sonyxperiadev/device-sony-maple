@@ -2,9 +2,45 @@
     <resources>
 
         <!-- thermal zones -->
-        <resource name="bms"  type="tz">/sys/class/thermal/thermal_zone0</resource>
-        <resource name="msm_therm" type="tz">/sys/class/thermal/thermal_zone24</resource>
-        <resource name="emmc_therm" type="tz">/sys/class/thermal/thermal_zone25</resource>
+        <resource name="ufs_therm" type="tz">/sys/class/thermal/thermal_zone0</resource>
+        <resource name="pa_therm1" type="tz">/sys/class/thermal/thermal_zone1</resource>
+        <resource name="pa_therm2" type="tz">/sys/class/thermal/thermal_zone2</resource>
+        <resource name="flash_therm" type="tz">/sys/class/thermal/thermal_zone3</resource>
+        <resource name="pm8998_tz" type="tz">/sys/class/thermal/thermal_zone4</resource>
+        <resource name="pmi8998_tz" type="tz">/sys/class/thermal/thermal_zone5</resource>
+        <resource name="pm8005_tz" type="tz">/sys/class/thermal/thermal_zone6</resource>
+        <resource name="msm_therm" type="tz">/sys/class/thermal/thermal_zone7</resource>
+        <resource name="quiet_therm" type="tz">/sys/class/thermal/thermal_zone8</resource>
+        <resource name="xo_therm" type="tz">/sys/class/thermal/thermal_zone9</resource>
+        <resource name="tsens_tz_sensor0" type="tz">/sys/class/thermal/thermal_zone10</resource>
+        <resource name="tsens_tz_sensor1" type="tz">/sys/class/thermal/thermal_zone11</resource>
+        <resource name="tsens_tz_sensor2" type="tz">/sys/class/thermal/thermal_zone12</resource>
+        <resource name="tsens_tz_sensor3" type="tz">/sys/class/thermal/thermal_zone13</resource>
+        <resource name="tsens_tz_sensor4" type="tz">/sys/class/thermal/thermal_zone14</resource>
+        <resource name="tsens_tz_sensor7" type="tz">/sys/class/thermal/thermal_zone15</resource>
+        <resource name="tsens_tz_sensor8" type="tz">/sys/class/thermal/thermal_zone16</resource>
+        <resource name="tsens_tz_sensor9" type="tz">/sys/class/thermal/thermal_zone17</resource>
+        <resource name="tsens_tz_sensor10" type="tz">/sys/class/thermal/thermal_zone18</resource>
+        <resource name="tsens_tz_sensor11" type="tz">/sys/class/thermal/thermal_zone19</resource>
+        <resource name="tsens_tz_sensor12" type="tz">/sys/class/thermal/thermal_zone20</resource>
+        <resource name="tsens_tz_sensor13" type="tz">/sys/class/thermal/thermal_zone21</resource>
+        <resource name="tsens_tz_sensor14" type="tz">/sys/class/thermal/thermal_zone22</resource>
+        <resource name="tsens_tz_sensor15" type="tz">/sys/class/thermal/thermal_zone23</resource>
+        <resource name="tsens_tz_sensor16" type="tz">/sys/class/thermal/thermal_zone24</resource>
+        <resource name="tsens_tz_sensor17" type="tz">/sys/class/thermal/thermal_zone25</resource>
+        <resource name="tsens_tz_sensor18" type="tz">/sys/class/thermal/thermal_zone26</resource>
+        <resource name="tsens_tz_sensor19" type="tz">/sys/class/thermal/thermal_zone27</resource>
+        <resource name="tsens_tz_sensor20" type="tz">/sys/class/thermal/thermal_zone28</resource>
+        <resource name="tsens_tz_sensor21" type="tz">/sys/class/thermal/thermal_zone29</resource>
+        <resource name="limits_sensor-00" type="tz">/sys/class/thermal/thermal_zone30</resource>
+        <resource name="limits_sensor-01" type="tz">/sys/class/thermal/thermal_zone31</resource>
+        <resource name="bms" type="tz">/sys/class/thermal/thermal_zone32</resource>
+        <resource name="battery" type="tz">/sys/class/thermal/thermal_zone33</resource>
+        <resource name="GLM_soc" type="tz">/sys/class/thermal/thermal_zone34</resource>
+        <resource name="LLM_cp1-" type="tz">/sys/class/thermal/thermal_zone35</resource>
+        <resource name="LLM_cp0-" type="tz">/sys/class/thermal/thermal_zone36</resource>
+        <!--<resource name="wsatz.11" type="tz">/sys/class/thermal/thermal_zone37</resource>
+        <resource name="wsatz.12" type="tz">/sys/class/thermal/thermal_zone38</resource>-->
 
         <!-- cpu clusters -->
         <resource name="cluster-0-max-clk" type="sysfs">/sys/module/msm_performance/parameters/cpu_max_freq</resource>
@@ -71,7 +107,7 @@
     </control>
 
     <!-- throttling -->
-    <configuration sensor="emmc_therm">
+    <configuration sensor="ufs_therm">
         <threshold>
             <mitigation name="cluster-0-clk" level="off" />
             <mitigation name="cluster-1-clk" level="off" />
@@ -141,7 +177,7 @@
     </configuration>
 
     <!-- burn-out protection -->
-    <configuration sensor="emmc_therm">
+    <configuration sensor="ufs_therm">
         <threshold>
             <mitigation name="shutdown" level="off" />
         </threshold>
