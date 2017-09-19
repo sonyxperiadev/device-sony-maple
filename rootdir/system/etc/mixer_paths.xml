@@ -2938,8 +2938,8 @@
 
     <path name="camcorder-mic">
         <path name="camcorder-mic-common" />
-        <ctl name="DEC8 Volume" value="101" />
-        <ctl name="DEC7 Volume" value="83" />
+        <ctl name="DEC8 Volume" value="120" />
+        <ctl name="DEC7 Volume" value="100" />
     </path>
 
     <path name="camcorder-mic-gain-low">
