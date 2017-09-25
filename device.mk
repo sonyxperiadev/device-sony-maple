@@ -93,7 +93,7 @@ $(call inherit-product, device/sony/yoshino/platform.mk)
 $(call inherit-product-if-exists, vendor/nxp/nxp-vendor.mk)
 
 # include board vendor blobs
-$(call inherit-product, vendor/sony/yoshino-common/yoshino-partial.mk)
+$(call inherit-product-if-exists, vendor/sony/yoshino-common/yoshino-partial.mk)
 
 # include optional vendor configuration
 $(call inherit-product-if-exists, vendor/qcom/proprietary/common/build/qcom-packages.mk)
