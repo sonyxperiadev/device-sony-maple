@@ -23,7 +23,7 @@
         <resource name="tsens_tz_sensor9" type="tz">/sys/class/thermal/thermal_zone18</resource>
         <resource name="tsens_tz_sensor10" type="tz">/sys/class/thermal/thermal_zone19</resource>
         <resource name="tsens_tz_sensor11" type="tz">/sys/class/thermal/thermal_zone20</resource>
-        <resource name="tsens_tz_sensor12" type="tz">/sys/class/thermal/thermal_zone21</resource>
+        <resource name="gpu-temp"          type="tz">/sys/class/thermal/thermal_zone21</resource>
         <resource name="tsens_tz_sensor13" type="tz">/sys/class/thermal/thermal_zone22</resource>
         <resource name="tsens_tz_sensor14" type="tz">/sys/class/thermal/thermal_zone23</resource>
         <resource name="tsens_tz_sensor15" type="tz">/sys/class/thermal/thermal_zone24</resource>
@@ -42,6 +42,12 @@
         <!--<resource name="wsatz.11" type="tz">/sys/class/thermal/thermal_zone37</resource>
         <resource name="wsatz.12" type="tz">/sys/class/thermal/thermal_zone38</resource>-->
 
+        <!-- generic cpufreq -->
+        <resource name="msm_performance" type="sysfs">/sys/module/msm_performance/parameters/cpu_max_freq</resource>
+
+        <!-- hotplugging -->
+        <resource name="thermal-max-cpus" type="sysfs">/sys/devices/system/cpu/cpuquiet/nr_thermal_max_cpus</resource>
+
         <!-- cpu clusters -->
         <resource name="cluster-0-max-clk" type="sysfs">/sys/module/msm_performance/parameters/cpu_max_freq</resource>
         <resource name="cluster-1-max-clk" type="sysfs">/sys/module/msm_performance/parameters/cpu_max_freq</resource>
@@ -55,6 +61,21 @@
         <!-- shutdown -->
         <resource name="shutdown" type="halt" delay="5" />
 
+        <!-- CPU temperature -->
+        <resource name="cluster-0-temp" type="union">
+            <resource name="tsens_tz_sensor1" />
+            <resource name="tsens_tz_sensor2" />
+            <resource name="tsens_tz_sensor3" />
+            <resource name="tsens_tz_sensor4" />
+        </resource>
+
+        <resource name="cluster-1-temp" type="union">
+            <resource name="tsens_tz_sensor7" />
+            <resource name="tsens_tz_sensor8" />
+            <resource name="tsens_tz_sensor9" />
+            <resource name="tsens_tz_sensor10" />
+        </resource>
+
     </resources>
 
     <control name="shutdown">
@@ -65,33 +86,40 @@
     <!-- cluster 0 clocks -->
     <control name="cluster-0-clk">
         <mitigation level="off"><value resource="cluster-0-max-clk">0:4294967295</value></mitigation>
-        <mitigation level="1"><value resource="cluster-0-max-clk">0:1478400</value></mitigation>
-        <mitigation level="2"><value resource="cluster-0-max-clk">0:1324800</value></mitigation>
-        <mitigation level="3"><value resource="cluster-0-max-clk">0:1113600</value></mitigation>
-        <mitigation level="4"><value resource="cluster-0-max-clk">0:1036800</value></mitigation>
-        <mitigation level="5"><value resource="cluster-0-max-clk">0:844800</value></mitigation>
-        <mitigation level="6"><value resource="cluster-0-max-clk">0:729600</value></mitigation>
-        <mitigation level="7"><value resource="cluster-0-max-clk">0:422400</value></mitigation>
-        <mitigation level="8"><value resource="cluster-0-max-clk">0:307200</value></mitigation>
+        <mitigation level="1"><value resource="cluster-0-max-clk">0:1900800</value></mitigation>
+        <mitigation level="2"><value resource="cluster-0-max-clk">0:1824000</value></mitigation>
+        <mitigation level="3"><value resource="cluster-0-max-clk">0:1824000</value></mitigation>
+        <mitigation level="4"><value resource="cluster-0-max-clk">0:1670400</value></mitigation>
+        <mitigation level="5"><value resource="cluster-0-max-clk">0:1478400</value></mitigation>
+        <mitigation level="6"><value resource="cluster-0-max-clk">0:1171200</value></mitigation>
+        <mitigation level="7"><value resource="cluster-0-max-clk">0:672000</value></mitigation>
+        <mitigation level="8"><value resource="cluster-0-max-clk">0:300000</value></mitigation>
     </control>
 
     <!-- cluster 1 clocks -->
     <control name="cluster-1-clk">
-        <mitigation level="off"><value resource="cluster-1-max-clk">2:4294967295</value></mitigation>
-        <mitigation level="1"><value resource="cluster-1-max-clk">2:1478400</value></mitigation>
-        <mitigation level="2"><value resource="cluster-1-max-clk">2:1324800</value></mitigation>
-        <mitigation level="3"><value resource="cluster-1-max-clk">2:1113600</value></mitigation>
-        <mitigation level="4"><value resource="cluster-1-max-clk">2:1036800</value></mitigation>
-        <mitigation level="5"><value resource="cluster-1-max-clk">2:883200</value></mitigation>
-        <mitigation level="6"><value resource="cluster-1-max-clk">2:729600</value></mitigation>
-        <mitigation level="7"><value resource="cluster-1-max-clk">2:403200</value></mitigation>
-        <mitigation level="8"><value resource="cluster-1-max-clk">2:307200</value></mitigation>
+        <mitigation level="off"><value resource="cluster-1-max-clk">4:4294967295</value></mitigation>
+        <mitigation level="1"><value resource="cluster-1-max-clk">4:2342400</value></mitigation>
+        <mitigation level="2"><value resource="cluster-1-max-clk">4:2208000</value></mitigation>
+        <mitigation level="3"><value resource="cluster-1-max-clk">4:1804800</value></mitigation>
+        <mitigation level="4"><value resource="cluster-1-max-clk">4:1574400</value></mitigation>
+        <mitigation level="5"><value resource="cluster-1-max-clk">4:1420800</value></mitigation>
+        <mitigation level="6"><value resource="cluster-1-max-clk">4:1056000</value></mitigation>
+        <mitigation level="7"><value resource="cluster-1-max-clk">4:672000</value></mitigation>
+        <mitigation level="8"><value resource="cluster-1-max-clk">4:300000</value></mitigation>
+    </control>
+
+    <control name="soc-cpu-hotplug">
+        <mitigation level="off"><value resource="thermal-max-cpus">8</value></mitigation>
+        <mitigation level="1"><value resource="thermal-max-cpus">6</value></mitigation>
+        <mitigation level="2"><value resource="thermal-max-cpus">4</value></mitigation>
+        <mitigation level="3"><value resource="thermal-max-cpus">2</value></mitigation>
     </control>
 
     <!-- adreno clocks -->
     <control name="adreno-clk">
-        <mitigation level="off"><value resource="adreno-max-clk">624000000</value></mitigation>
-        <mitigation level="1"><value resource="adreno-max-clk">133000000</value></mitigation>
+        <mitigation level="off"><value resource="adreno-max-clk">710000000</value></mitigation>
+        <mitigation level="1"><value resource="adreno-max-clk">257000000</value></mitigation>
     </control>
 
     <!-- charging levels -->
@@ -106,7 +134,40 @@
         <mitigation level="7"><value resource="charge_speed">13</value></mitigation>
     </control>
 
-    <!-- throttling -->
+    <!-- CPU temperature protection - Values in deci-centigrade -->
+    <configuration sensor="cluster-0-temp">
+        <threshold>
+	    <mitigation name="cluster-0-clk" level="off" />
+        </threshold>
+        <threshold trigger="750" clear="680">
+	    <mitigation name="cluster-0-clk" level="2" />
+        </threshold>
+        <threshold trigger="780" clear="730">
+	    <mitigation name="cluster-0-clk" level="4" />
+        </threshold>
+        <threshold trigger="900" clear="850">
+	    <mitigation name="cluster-0-clk" level="7" />
+        </threshold>
+    </configuration>
+
+    <configuration sensor="cluster-1-temp">
+        <threshold>
+	    <mitigation name="cluster-1-clk" level="off" />
+        </threshold>
+        <threshold trigger="750" clear="680">
+	    <mitigation name="cluster-1-clk" level="3" />
+        </threshold>
+        <threshold trigger="780" clear="730">
+	    <mitigation name="cluster-1-clk" level="5" />
+	    <mitigation name="soc-cpu-hotplug" level="1" />
+        </threshold>
+        <threshold trigger="900" clear="850">
+	    <mitigation name="cluster-1-clk" level="7" />
+	    <mitigation name="soc-cpu-hotplug" level="3" />
+        </threshold>
+    </configuration>
+
+    <!-- throttling - Values in deci-centigrade -->
     <configuration sensor="ufs_therm">
         <threshold>
             <mitigation name="cluster-0-clk" level="off" />
@@ -114,61 +175,61 @@
             <mitigation name="adreno-clk" level="off" />
             <mitigation name="charging" level="off" />
         </threshold>
-        <threshold trigger="45000" clear="42000">
+        <threshold trigger="450" clear="420">
             <mitigation name="cluster-0-clk" level="off" />
             <mitigation name="cluster-1-clk" level="off" />
             <mitigation name="charging" level="1" />
             <mitigation name="adreno-clk" level="off" />
         </threshold>
-        <threshold trigger="47700" clear="45000">
+        <threshold trigger="477" clear="450">
             <mitigation name="cluster-0-clk" level="1" />
             <mitigation name="cluster-1-clk" level="1" />
             <mitigation name="adreno-clk" level="off" />
             <mitigation name="charging" level="1" />
         </threshold>
-        <threshold trigger="48900" clear="47700">
-            <mitigation name="cluster-0-clk" level="2" />
+        <threshold trigger="489" clear="477">
+            <mitigation name="cluster-0-clk" level="1" />
             <mitigation name="cluster-1-clk" level="2" />
             <mitigation name="adreno-clk" level="off" />
             <mitigation name="charging" level="2" />
         </threshold>
-        <threshold trigger="50200" clear="48900">
-            <mitigation name="cluster-0-clk" level="3" />
+        <threshold trigger="502" clear="489">
+            <mitigation name="cluster-0-clk" level="1" />
             <mitigation name="cluster-1-clk" level="3" />
             <mitigation name="adreno-clk" level="off" />
             <mitigation name="charging" level="3" />
         </threshold>
-        <threshold trigger="51400" clear="50200">
-            <mitigation name="cluster-0-clk" level="4" />
+        <threshold trigger="514" clear="502">
+            <mitigation name="cluster-0-clk" level="2" />
             <mitigation name="cluster-1-clk" level="4" />
             <mitigation name="adreno-clk" level="off" />
             <mitigation name="charging" level="4" />
         </threshold>
-        <threshold trigger="52500" clear="51400">
-            <mitigation name="cluster-0-clk" level="5" />
+        <threshold trigger="525" clear="514">
+            <mitigation name="cluster-0-clk" level="3" />
             <mitigation name="cluster-1-clk" level="5" />
             <mitigation name="adreno-clk" level="off" />
             <mitigation name="charging" level="5" />
         </threshold>
-        <threshold trigger="53500" clear="52500">
-            <mitigation name="cluster-0-clk" level="6" />
+        <threshold trigger="535" clear="525">
+            <mitigation name="cluster-0-clk" level="4" />
             <mitigation name="cluster-1-clk" level="6" />
             <mitigation name="adreno-clk" level="off" />
             <mitigation name="charging" level="5" />
         </threshold>
-        <threshold trigger="54700" clear="53500">
-            <mitigation name="cluster-0-clk" level="7" />
+        <threshold trigger="547" clear="535">
+            <mitigation name="cluster-0-clk" level="5" />
             <mitigation name="cluster-1-clk" level="7" />
             <mitigation name="adreno-clk" level="off" />
             <mitigation name="charging" level="6" />
         </threshold>
-        <threshold trigger="55700" clear="54700">
-            <mitigation name="cluster-0-clk" level="8" />
+        <threshold trigger="557" clear="547">
+            <mitigation name="cluster-0-clk" level="6" />
             <mitigation name="cluster-1-clk" level="8" />
             <mitigation name="adreno-clk" level="1" />
             <mitigation name="charging" level="6" />
         </threshold>
-        <threshold trigger="63000" clear="60000">
+        <threshold trigger="630" clear="600">
             <mitigation name="cluster-0-clk" level="8" />
             <mitigation name="cluster-1-clk" level="8" />
             <mitigation name="adreno-clk" level="1" />
@@ -176,17 +237,26 @@
         </threshold>
     </configuration>
 
-    <!-- burn-out protection -->
-    <configuration sensor="ufs_therm">
+    <!-- burn-out protection - Values in deci-centigrade -->
+    <configuration sensor="cluster-0-temp">
         <threshold>
             <mitigation name="shutdown" level="off" />
         </threshold>
-        <threshold trigger="74000" clear="63000">
+        <threshold trigger="900" clear="850">
             <mitigation name="shutdown" level="1" />
         </threshold>
     </configuration>
 
-    <!-- battery protection -->
+    <configuration sensor="ufs_therm">
+        <threshold>
+            <mitigation name="shutdown" level="off" />
+        </threshold>
+        <threshold trigger="740" clear="630">
+            <mitigation name="shutdown" level="1" />
+        </threshold>
+    </configuration>
+
+    <!-- battery protection - Values in milli-centigrade -->
     <configuration sensor="bms">
         <threshold>
             <mitigation name="shutdown" level="off" />
