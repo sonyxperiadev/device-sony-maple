@@ -27,7 +27,7 @@ PRODUCT_COPY_FILES := \
 
 # Thermal Configuration
 PRODUCT_COPY_FILES := \
-    $(DEVICE_PATH)/rootdir/vendor/etc/thermanager.xml:vendor/etc/thermanager.xml
+    $(DEVICE_PATH)/rootdir/vendor/etc/thermanager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/thermanager.xml
 
 # Camera Configuration
 PRODUCT_COPY_FILES += \
