@@ -52,6 +52,7 @@ PRODUCT_COPY_FILES += \
 
 # Device Init
 PRODUCT_PACKAGES += \
+    fstab.maple \
     init.recovery.maple \
     init.maple \
     ueventd.maple
