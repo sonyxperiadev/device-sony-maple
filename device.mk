@@ -16,7 +16,7 @@
 DEVICE_PATH := device/sony/maple/rootdir
 
 DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/overlay
+    device/sony/maple/overlay
 
 # Device Specific Permissions
 PRODUCT_COPY_FILES := \
