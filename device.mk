@@ -57,6 +57,10 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/vendor/etc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
     $(DEVICE_PATH)/vendor/etc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
+# BT/Wifi patch file
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/vendor/firmware/wlan/qca_cld/bdwlan.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/bdwlan.bin
+
 # Device Init
 PRODUCT_PACKAGES += \
     fstab.maple \
