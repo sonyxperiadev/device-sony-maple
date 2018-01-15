@@ -1833,7 +1833,7 @@
     </path>
 
     <path name="voicemmode1-call headphones">
-        <ctl name="SLIM_6_RX_Voice Mixer VoiceMMode1" value="1" />
+        <ctl name="SLIM_0_RX_Voice Mixer VoiceMMode1" value="1" />
         <ctl name="VoiceMMode1_Tx Mixer SLIM_0_TX_MMode1" value="1" />
     </path>
 
