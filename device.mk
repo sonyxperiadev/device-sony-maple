@@ -65,8 +65,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.maple \
     init.recovery.maple \
-    init.maple \
-    ueventd.maple
+    init.maple
 
 # Lights
 PRODUCT_PACKAGES += \
