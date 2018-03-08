@@ -79,11 +79,19 @@
             <resource name="tsens_tz_sensor10" />
         </resource>
 
+        <!-- early boot thermal mitigation control -->
+        <resource name="msm_thermal" type="sysfs">/sys/module/msm_thermal/parameters/enabled</resource>
+
     </resources>
 
     <control name="shutdown">
         <mitigation level="off" />
         <mitigation level="1"><value resource="shutdown"/></mitigation>
+    </control>
+
+    <control name="msm_thermal">
+        <mitigation level="off"><value resource="msm_thermal">Y</value></mitigation>
+        <mitigation level="1"><value resource="msm_thermal">N</value></mitigation>
     </control>
 
     <!-- cluster 0 clocks -->
@@ -293,6 +301,16 @@
         </threshold>
         <threshold trigger="67000" clear="63000">
             <mitigation name="shutdown" level="1" />
+        </threshold>
+    </configuration>
+
+    <!-- disable early boot thermal mitigation -->
+    <configuration sensor="cluster-0-temp">
+        <threshold>
+            <mitigation name="msm_thermal" level="off" />
+        </threshold>
+        <threshold trigger="10" clear="9">
+            <mitigation name="msm_thermal" level="1" />
         </threshold>
     </configuration>
 
