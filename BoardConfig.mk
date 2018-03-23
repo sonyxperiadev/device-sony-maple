@@ -37,4 +37,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_OVERLAY_ENABLE := true
 TARGET_RECOVERY_OVERLAY_ENABLE_DOUBLE_BUFFERING := false
 
+# Device witout a vendor partition
+TARGET_COPY_OUT_VENDOR := system/vendor
+
 #TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
