@@ -71,10 +71,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.maple
 
-# Fingerprint HAL
-PRODUCT_PACKAGES += \
-    fingerprint.maple
-
 # NFC config
 PRODUCT_PACKAGES += \
     nfc_nci.maple
