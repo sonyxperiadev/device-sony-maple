@@ -40,4 +40,6 @@ TARGET_RECOVERY_OVERLAY_ENABLE_DOUBLE_BUFFERING := false
 # Device witout a vendor partition
 TARGET_COPY_OUT_VENDOR := system/vendor
 
+BOARD_ROOT_EXTRA_SYMLINKS := /system/vendor/lib/dsp:/dsp
+
 #TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
