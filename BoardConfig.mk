@@ -14,7 +14,7 @@
 
 include device/sony/yoshino/PlatformConfig.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := G8141
+TARGET_BOOTLOADER_BOARD_NAME := yoshino
 
 # Platform
 PRODUCT_PLATFORM := yoshino
