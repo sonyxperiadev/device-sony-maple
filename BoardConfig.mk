@@ -23,6 +23,9 @@ else
 $(error Unrecognized value for TARGET_PRODUCT: "$(TARGET_PRODUCT)")
 endif
 
+# Platform
+PRODUCT_PLATFORM := yoshino
+
 # NFC
 NXP_CHIP_TYPE := PN553
 NXP_CHIP_FW_TYPE := PN553
