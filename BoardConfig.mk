@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Override fstab.yoshino due to
+# no /vendor partition for maple
+# twrp will try to mount /vendor
+TARGET_RECOVERY_FSTAB ?= device/sony/maple/rootdir/vendor/etc/fstab.maple
+
 include device/sony/yoshino/PlatformConfig.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := unknown
