@@ -28,7 +28,6 @@ endif
 PRODUCT_PLATFORM := yoshino
 
 # NFC
-NXP_CHIP_TYPE := PN553
 NXP_CHIP_FW_TYPE := PN553
 
 BOARD_KERNEL_CMDLINE += androidboot.hardware=maple

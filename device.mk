@@ -75,10 +75,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.maple
 
-# NFC config
-PRODUCT_PACKAGES += \
-    nfc_nci.maple
-
 # Telephony Packages (AOSP)
 PRODUCT_PACKAGES += \
     InCallUI \
