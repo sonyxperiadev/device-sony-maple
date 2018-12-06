@@ -13,6 +13,8 @@
 # limitations under the License.
 
 # DualSim
+PRODUCT_DEVICE_DS := true
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.multisim.config=dsds \
     persist.radio.multisim.config=dsds \
