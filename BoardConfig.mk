@@ -42,8 +42,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 54587727872
 # Device witout a vendor partition
 TARGET_COPY_OUT_VENDOR := system/vendor
 
-BOARD_ROOT_EXTRA_SYMLINKS := /system/vendor/lib/dsp:/dsp
-
 TARGET_USES_CASH_EXTENSION := true
 
 #TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
