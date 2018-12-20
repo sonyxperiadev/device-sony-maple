@@ -28,5 +28,16 @@
       <A3Preview>imx400_default_preview_bu64747</A3Preview>
       <A3Video>imx400_default_video_bu64747</A3Video>
     </ChromatixName>
+    <ChromatixName sensor_resolution_index="2">
+      <ISPPreview>imx400_preview</ISPPreview>
+      <ISPSnapshot>imx400_preview</ISPSnapshot>
+      <ISPVideo>imx400_preview</ISPVideo>
+      <CPPPreview>imx400_cpp_preview</CPPPreview>
+      <CPPSnapshot>imx400_cpp_snapshot</CPPSnapshot>
+      <CPPVideo>imx400_cpp_video</CPPVideo>
+      <CPPLiveshot>imx400_cpp_liveshot</CPPLiveshot>
+      <A3Preview>imx400_default_preview_bu64747</A3Preview>
+      <A3Video>imx400_default_video_bu64747</A3Video>
+    </ChromatixName>
   </ResolutionChromatixInfo>
 </ChromatixConfigurationRoot>
