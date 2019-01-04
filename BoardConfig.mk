@@ -24,6 +24,9 @@ TARGET_BOOTLOADER_BOARD_NAME := G8141
 $(warning Unrecognized value for TARGET_PRODUCT: "$(TARGET_PRODUCT)", using default value: "$(TARGET_BOOTLOADER_BOARD_NAME)")
 endif
 
+# Kernel
+TARGET_KERNEL_CONFIG := aosp_yoshino_maple_defconfig
+
 # Platform
 PRODUCT_PLATFORM := yoshino
 
