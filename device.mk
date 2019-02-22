@@ -70,10 +70,6 @@ PRODUCT_PACKAGES += \
     init.recovery.maple \
     init.maple
 
-# Simple PowerHAL
-PRODUCT_PACKAGES += \
-    power.maple
-
 # Telephony Packages (AOSP)
 PRODUCT_PACKAGES += \
     InCallUI \
