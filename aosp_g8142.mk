@@ -16,8 +16,7 @@
 PRODUCT_DEVICE_DS := true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.multisim.config=dsds \
-    persist.radio.multisim.config=dsds \
+    persist.vendor.radio.multisim.config=dsds \
     ro.telephony.default_network=9,1
 
 # Inherit from those products. Most specific first.
