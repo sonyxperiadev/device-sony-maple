@@ -61,7 +61,7 @@ PRODUCT_COPY_FILES += \
 
 # BT/Wifi patch file
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/vendor/firmware/wlan/qca_cld/bdwlan.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/bdwlan.bin
+    $(DEVICE_PATH)/vendor/firmware/bdwlan.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/bdwlan.bin
 
 # Device Init
 PRODUCT_PACKAGES += \
